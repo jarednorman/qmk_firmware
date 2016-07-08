@@ -36,7 +36,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,     KC_NO,
        KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,   KC_PERC,   KC_NO,
        KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,     KC_5,
-       KC_TRNS, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_PGDOWN, KC_NO,
+       KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_PGDOWN, KC_NO,
        KC_TRNS, KC_TRNS, KC_TRNS, KC_NO,   KC_TRNS,
 
                                                          KC_NO, KC_NO,
@@ -47,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
        KC_NO,   KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PLUS,
                 KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_EQL,
-       KC_NO,   KC_PGUP, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_TRNS,
+       KC_NO,   KC_PGUP, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,KC_TRNS,
                          KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,
 
        KC_NO,   KC_NO,
@@ -72,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_NO,   KC_F7,      KC_F8,      KC_F9,      KC_F10,      KC_F11,    KC_F12,
                 LGUI(KC_6), LGUI(KC_7), LGUI(KC_8), LGUI(KC_9),  KC_HOME,   KC_NO,
        KC_NO,   KC_NO,      KC_NO,      KC_NO,      KC_NO,       KC_END,    KC_TRNS,
-                            KC_NO,      KC_MPLY,    KC__VOLDOWN, KC__VOLUP, KC_TRNS,
+                            TG(GMZZ),   KC_MPLY,    KC__VOLDOWN, KC__VOLUP, KC_TRNS,
 
        KC_NO, KC_NO,
        KC_NO,
@@ -91,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                    KC_SPC, KC_E,    KC_Q,
 
        // Right hand:
-       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   TG(GMZZ),
        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
                 KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,

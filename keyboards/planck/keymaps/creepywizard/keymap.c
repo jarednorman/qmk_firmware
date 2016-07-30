@@ -4,8 +4,63 @@
 
 float tone_startup[][2] = SONG(
   Q__NOTE(_A3),
-  Q__NOTE(_D8),
-  H__NOTE(_C5)
+
+  Q__NOTE(_E4),
+  Q__NOTE(_D4),
+  Q__NOTE(_E4),
+  Q__NOTE(_G4),
+
+  W__NOTE(_E4),
+
+  H__NOTE(_REST),
+  Q__NOTE(_REST),
+  Q__NOTE(_A3),
+
+  Q__NOTE(_E4),
+  Q__NOTE(_D4),
+  Q__NOTE(_E4),
+  Q__NOTE(_A4),
+
+  W__NOTE(_E4),
+
+  H__NOTE(_REST),
+  Q__NOTE(_REST),
+  Q__NOTE(_C5),
+
+  Q__NOTE(_B4),
+  Q__NOTE(_A4),
+  Q__NOTE(_G4),
+  Q__NOTE(_A4),
+
+  W__NOTE(_E4),
+
+  H__NOTE(_REST),
+  Q__NOTE(_REST),
+  Q__NOTE(_C5),
+
+  Q__NOTE(_B4),
+  Q__NOTE(_A4),
+  Q__NOTE(_G4),
+  Q__NOTE(_B4),
+
+  W__NOTE(_E4),
+
+  H__NOTE(_REST),
+  Q__NOTE(_REST),
+  Q__NOTE(_A3),
+
+  Q__NOTE(_E4),
+  Q__NOTE(_D4),
+  Q__NOTE(_E4),
+  Q__NOTE(_A4),
+
+  W__NOTE(_E4),
+
+  H__NOTE(_REST),
+  Q__NOTE(_REST),
+  Q__NOTE(_A4),
+
+  W__NOTE(_E4)
 );
 
 // Each layer gets a name for readability, which is then used in the keymap matrix below.
@@ -82,7 +137,7 @@ void matrix_init_user(void) {
 
 void startup_user() {
     _delay_ms(20); // gets rid of tick
-    PLAY_NOTE_ARRAY(tone_startup, false, 1);
+    PLAY_NOTE_ARRAY(tone_startup, false, 0);
 }
 
 const uint16_t PROGMEM fn_actions[] = {

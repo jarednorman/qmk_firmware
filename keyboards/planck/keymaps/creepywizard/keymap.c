@@ -106,7 +106,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [1] = {
   {KC_TILD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PLUS},
   {KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_EQL},
-  {_______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PGDN, KC_PGUP, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_PSCR},
+  {_______, M(1),    XXXXXXX, XXXXXXX, XXXXXXX, KC_PGDN, KC_PGUP, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_PSCR},
   {_______, _______, _______, XXXXXXX, _______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, _______}
 },
 
@@ -147,16 +147,7 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
   switch(id) {
     case 1:
       if (record->event.pressed) {
-        layer_on(1);
-      } else {
-        layer_off(1);
-      }
-      break;
-    case 2:
-      if (record->event.pressed) {
-        layer_on(2);
-      } else {
-        layer_off(2);
+        PLAY_NOTE_ARRAY(tone_startup, false, 0);
       }
       break;
   }

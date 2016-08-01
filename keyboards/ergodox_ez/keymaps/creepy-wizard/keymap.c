@@ -27,7 +27,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO, KC_P, KC_M,  KC_COMM, KC_DOT,  KC_SLSH,   KC_LSHIFT,
                      MO(1), KC_LBRC, KC_RBRC, KC_BSLS,   MO(2),
 
-        KC_NO, KC_NO,
+        TG(GMZZ),KC_NO,
         KC_NO,
         KC_NO, KC_NO, KC_ENT
     ),
@@ -72,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_NO,   KC_F7,      KC_F8,      KC_F9,      KC_F10,      KC_F11,    KC_F12,
                 LGUI(KC_6), LGUI(KC_7), LGUI(KC_8), LGUI(KC_9),  KC_HOME,   KC_NO,
        KC_NO,   KC_NO,      KC_NO,      KC_NO,      KC_NO,       KC_END,    KC_TRNS,
-                            TG(GMZZ),   KC_MPLY,    KC__VOLDOWN, KC__VOLUP, KC_TRNS,
+                            KC_NO,      KC_MPLY,    KC__VOLDOWN, KC__VOLUP, KC_TRNS,
 
        KC_NO, KC_NO,
        KC_NO,
@@ -136,11 +136,19 @@ void matrix_scan_user(void) {
     ergodox_right_led_3_off();
     switch (layer) {
       // TODO: Make this relevant to the ErgoDox EZ.
-        case 1:
+        case 0:
             ergodox_right_led_1_on();
             break;
-        case 2:
+        case 1:
             ergodox_right_led_2_on();
+            break;
+        case 2:
+            ergodox_right_led_3_on();
+            break;
+        case 3:
+            ergodox_right_led_1_on();
+            ergodox_right_led_2_on();
+            ergodox_right_led_3_on();
             break;
         default:
             // none

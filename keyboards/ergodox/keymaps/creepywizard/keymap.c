@@ -3,10 +3,11 @@
 #include "action_layer.h"
 #include "version.h"
 
-#define BASE 0 // default layer
-#define SYMB 1 // symbols
-#define XTRA 2 // extras
-#define GMZZ 3 // gaming
+#define BASE   0 // default layer
+#define LOWER  1 // symbols
+#define RAISE  2 // numbers
+#define EXTRAS 3 // gaming
+#define GAMING 4 // gaming
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = KEYMAP(
@@ -14,8 +15,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_GRV,  KC_1,    KC_2,    KC_3,         KC_4,   KC_5, KC_NO,
         KC_TAB,  KC_Q,    KC_W,    KC_D,         KC_F,   KC_K, KC_NO,
         KC_ESC,  KC_A,    KC_S,    KC_E,         KC_T,   KC_G,
-        KC_LSFT, KC_Z,    KC_X,    KC_C,         KC_V,   KC_B, KC_NO,
-        KC_LCTL, KC_LGUI, KC_LALT, LSFT(KC_INS), KC_BSPC,
+        KC_LSPO, KC_Z,    KC_X,    KC_C,         KC_V,   KC_B, KC_NO,
+        KC_LCTL, KC_LGUI, KC_LALT, S(KC_INS),    MO(1),
 
                                                         KC_NO, KC_NO,
                                                                KC_NO,
@@ -25,14 +26,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO, KC_6, KC_7,  KC_8,    KC_9,    KC_0,      KC_EQL,
         KC_NO, KC_J, KC_U,  KC_R,    KC_L,    KC_SCOLON, KC_MINS,
                KC_Y, KC_N,  KC_I,    KC_O,    KC_H,      KC_QUOT,
-        KC_NO, KC_P, KC_M,  KC_COMM, KC_DOT,  KC_SLSH,   KC_LSHIFT,
-                     MO(1), KC_LBRC, KC_RBRC, KC_BSLS,   MO(2),
+        KC_NO, KC_P, KC_M,  KC_COMM, KC_DOT,  KC_SLSH,   KC_RSPC,
+                     MO(2), KC_LBRC, KC_RBRC, KC_BSLS,   LT(4, KC_BSPC),
 
-        TG(GMZZ),KC_NO,
+        TG(GAMING),KC_NO,
         KC_NO,
         KC_NO, KC_NO, KC_ENT
     ),
-    [SYMB] = KEYMAP(
+    [LOWER] = KEYMAP(
        // Left hand:
        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,     KC_NO,
        KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,   KC_PERC,   KC_NO,
@@ -56,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_NO,   KC_NO, KC_TRNS
     ),
 
-    [XTRA] = KEYMAP(
+    [RAISE] = KEYMAP(
        // Left hand:
        KC_NO,   KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,
        KC_F1,   KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,      KC_NO,
@@ -79,7 +80,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_NO,
        KC_NO, KC_NO, KC_TRNS
     ),
-    [GMZZ] = KEYMAP(
+    [EXTRAS] = KEYMAP(
+       // Left hand:
+       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+
+                                           KC_NO,   KC_NO,
+                                                    KC_NO,
+                                    KC_NO, KC_NO,   KC_NO,
+
+       // Right hand:
+       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+                KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+                         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+
+       KC_NO,   KC_NO,
+       KC_NO,
+       KC_NO,   KC_NO, KC_NO
+    ),
+    [GAMING] = KEYMAP(
        // Left hand:
        KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,
        KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_7,
@@ -92,7 +116,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                    KC_SPC, KC_E,    KC_Q,
 
        // Right hand:
-       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   TG(GMZZ),
+       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   TG(GAMING),
        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
                 KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
@@ -105,7 +129,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 const uint16_t PROGMEM fn_actions[] = {
-    [1] = ACTION_LAYER_TAP_TOGGLE(SYMB)                // FN1 - Momentary Layer 1 (Symbols)
 };
 
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)

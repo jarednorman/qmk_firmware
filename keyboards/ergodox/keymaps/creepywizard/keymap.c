@@ -150,6 +150,7 @@ void matrix_init_user(void) {
 };
 
 // Runs constantly in the background, in a loop.
+static int ticks = 0;
 void matrix_scan_user(void) {
 
     uint8_t layer = biton32(layer_state);
@@ -158,23 +159,27 @@ void matrix_scan_user(void) {
     ergodox_right_led_1_off();
     ergodox_right_led_2_off();
     ergodox_right_led_3_off();
+
     switch (layer) {
       // TODO: Make this relevant to the ErgoDox EZ.
         case BASE:
-            ergodox_right_led_1_on();
+            if (ticks < 100) { ergodox_right_led_1_on(); }
+            if (ticks >= 100 && ticks < 200) { ergodox_right_led_2_on(); }
+            if (ticks >= 200 && ticks < 300) { ergodox_right_led_3_on(); }
+            if (ticks >= 200 && ticks < 300) { ergodox_right_led_3_on(); }
+            if (ticks >= 300 && ticks < 400) { ergodox_right_led_2_on(); }
             break;
         case LOWER:
-            ergodox_right_led_2_on();
+            ergodox_right_led_1_on();
             break;
         case RAISE:
-            ergodox_right_led_1_on();
             ergodox_right_led_2_on();
             break;
         case EXTRAS:
-            ergodox_right_led_3_on();
+            ergodox_right_led_1_on();
+            ergodox_right_led_2_on();
             break;
         case GAMING:
-            ergodox_right_led_1_on();
             ergodox_right_led_3_on();
             break;
         default:
@@ -182,6 +187,10 @@ void matrix_scan_user(void) {
             break;
     }
 
+    ticks += 1;
+    if (400 == ticks) {
+        ticks = 0;
+    }
 };
 
 /* Blank Layer

@@ -6,7 +6,7 @@
 #define BASE   0 // default layer
 #define LOWER  1 // symbols
 #define RAISE  2 // numbers
-#define EXTRAS 3 // gaming
+#define EXTRAS 3 // extras
 #define GAMING 4 // gaming
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -27,7 +27,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO, KC_J, KC_U,  KC_R,    KC_L,    KC_SCOLON, KC_MINS,
                KC_Y, KC_N,  KC_I,    KC_O,    KC_H,      KC_QUOT,
         KC_NO, KC_P, KC_M,  KC_COMM, KC_DOT,  KC_SLSH,   KC_RSPC,
-                     MO(2), KC_LBRC, KC_RBRC, KC_BSLS,   LT(4, KC_BSPC),
+                     MO(2), KC_LBRC, KC_RBRC, KC_BSLS,   LT(EXTRAS, KC_BSPC),
 
         TG(GAMING),KC_NO,
         KC_NO,
@@ -36,9 +36,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [LOWER] = KEYMAP(
        // Left hand:
        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,     KC_NO,
-       KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,   KC_PERC,   KC_NO,
-       KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,     KC_5,
-       KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_PGDOWN, KC_NO,
+       KC_TILD, KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,     KC_NO,
+       KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,   KC_PERC,
+       KC_TRNS, KC_HOME, KC_PGDN, KC_PGUP, KC_END,   KC_NO,     KC_NO,
        KC_TRNS, KC_TRNS, KC_TRNS, KC_NO,   KC_TRNS,
 
                                                          KC_NO, KC_NO,
@@ -47,10 +47,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
        // Right hand:
        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-       KC_NO,   KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PLUS,
-                KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_EQL,
-       KC_NO,   KC_PGUP, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,KC_TRNS,
-                         KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,
+       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_PLUS,
+                KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_EQL,
+       KC_NO,   KC_NO,   KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,KC_PSCR,
+                         KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_TRNS,
 
        KC_NO,   KC_NO,
        KC_NO,
@@ -59,49 +59,49 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [RAISE] = KEYMAP(
        // Left hand:
-       KC_NO,   KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,
-       KC_F1,   KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,      KC_NO,
-       KC_PSCR, LGUI(KC_1), LGUI(KC_2), LGUI(KC_3), LGUI(KC_4), LGUI(KC_5),
-       KC_TRNS, KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,
-       KC_TRNS, KC_TRNS,    KC_TRNS,    KC_NO,      KC_TRNS,
+       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+       KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_NO,
+       KC_NO,   KC_1,    KC_2,    KC_3,    KC_4,    KC_5,
+       KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+       KC_TRNS, KC_TRNS, KC_TRNS, KC_NO,   KC_TRNS,
 
-                                                                   KC_NO,   KC_NO,
-                                                                            KC_NO,
-                                                          KC_TRNS, KC_NO,   KC_NO,
+                                           KC_NO,   KC_NO,
+                                                    KC_NO,
+                                  KC_TRNS, KC_NO,   KC_NO,
 
        // Right hand:
-       KC_NO,   KC_NO,      KC_NO,      KC_NO,      KC_NO,       KC_NO,     KC_NO,
-       KC_NO,   KC_F7,      KC_F8,      KC_F9,      KC_F10,      KC_F11,    KC_F12,
-                LGUI(KC_6), LGUI(KC_7), LGUI(KC_8), LGUI(KC_9),  KC_HOME,   KC_NO,
-       KC_NO,   KC_NO,      KC_NO,      KC_NO,      KC_NO,       KC_END,    KC_TRNS,
-                            KC_NO,      KC_MPLY,    KC__VOLDOWN, KC__VOLUP, KC_TRNS,
+       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+       KC_NO,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
+                KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_VOLU,
+       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_MPLY, KC_VOLD,
+                         KC_TRNS, KC_NO,   KC_NO, TG(GAMING),KC_TRNS,
 
-       KC_NO, KC_NO,
+       KC_NO,   KC_NO,
        KC_NO,
-       KC_NO, KC_NO, KC_TRNS
+       KC_NO,   KC_NO, KC_TRNS
     ),
     [EXTRAS] = KEYMAP(
        // Left hand:
        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+       KC_NO,   LGUI(KC_1),LGUI(KC_2),LGUI(KC_3),LGUI(KC_4),LGUI(KC_5),
+       KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+       KC_TRNS, KC_TRNS, KC_TRNS, KC_NO,   KC_TRNS,
 
                                            KC_NO,   KC_NO,
                                                     KC_NO,
-                                    KC_NO, KC_NO,   KC_NO,
+                                  KC_TRNS, KC_NO,   KC_NO,
 
        // Right hand:
        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-                KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+                LGUI(KC_6),KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-                         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+                         KC_TRNS ,KC_NO,   KC_NO,   KC_NO,   KC_TRNS,
 
        KC_NO,   KC_NO,
        KC_NO,
-       KC_NO,   KC_NO, KC_NO
+       KC_NO,   KC_NO, KC_TRNS
     ),
     [GAMING] = KEYMAP(
        // Left hand:
@@ -116,15 +116,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                    KC_SPC, KC_E,    KC_Q,
 
        // Right hand:
-       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   TG(GAMING),
+       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
                 KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-                         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+                         KC_TRNS, KC_NO,   KC_NO,   KC_TRNS, KC_TRNS,
 
        KC_NO,   KC_NO,
        KC_NO,
-       KC_NO,   KC_NO, KC_NO
+       KC_NO,   KC_NO, KC_TRNS
     ),
 };
 
@@ -160,18 +160,21 @@ void matrix_scan_user(void) {
     ergodox_right_led_3_off();
     switch (layer) {
       // TODO: Make this relevant to the ErgoDox EZ.
-        case 0:
+        case BASE:
             ergodox_right_led_1_on();
             break;
-        case 1:
+        case LOWER:
             ergodox_right_led_2_on();
             break;
-        case 2:
+        case RAISE:
+            ergodox_right_led_1_on();
+            ergodox_right_led_2_on();
+            break;
+        case EXTRAS:
             ergodox_right_led_3_on();
             break;
-        case 3:
+        case GAMING:
             ergodox_right_led_1_on();
-            ergodox_right_led_2_on();
             ergodox_right_led_3_on();
             break;
         default:
@@ -186,21 +189,21 @@ void matrix_scan_user(void) {
        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+       KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+       KC_TRNS, KC_TRNS, KC_TRNS, KC_NO,   KC_TRNS,
 
                                            KC_NO,   KC_NO,
                                                     KC_NO,
-                                    KC_NO, KC_NO,   KC_NO,
+                                  KC_TRNS, KC_NO,   KC_NO,
 
        // Right hand:
        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
                 KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-                         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+                         KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_TRNS,
 
        KC_NO,   KC_NO,
        KC_NO,
-       KC_NO,   KC_NO, KC_NO
+       KC_NO,   KC_NO, KC_TRNS
 */

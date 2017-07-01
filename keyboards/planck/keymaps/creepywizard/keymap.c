@@ -3,64 +3,6 @@
 #include "audio.h"
 
 float tone_startup[][2] = SONG(
-  Q__NOTE(_A3),
-
-  Q__NOTE(_E4),
-  Q__NOTE(_D4),
-  Q__NOTE(_E4),
-  Q__NOTE(_G4),
-
-  W__NOTE(_E4),
-
-  H__NOTE(_REST),
-  Q__NOTE(_REST),
-  Q__NOTE(_A3),
-
-  Q__NOTE(_E4),
-  Q__NOTE(_D4),
-  Q__NOTE(_E4),
-  Q__NOTE(_A4),
-
-  W__NOTE(_E4),
-
-  H__NOTE(_REST),
-  Q__NOTE(_REST),
-  Q__NOTE(_C5),
-
-  Q__NOTE(_B4),
-  Q__NOTE(_A4),
-  Q__NOTE(_G4),
-  Q__NOTE(_A4),
-
-  W__NOTE(_E4),
-
-  H__NOTE(_REST),
-  Q__NOTE(_REST),
-  Q__NOTE(_C5),
-
-  Q__NOTE(_B4),
-  Q__NOTE(_A4),
-  Q__NOTE(_G4),
-  Q__NOTE(_B4),
-
-  W__NOTE(_E4),
-
-  H__NOTE(_REST),
-  Q__NOTE(_REST),
-  Q__NOTE(_A3),
-
-  Q__NOTE(_E4),
-  Q__NOTE(_D4),
-  Q__NOTE(_E4),
-  Q__NOTE(_A4),
-
-  W__NOTE(_E4),
-
-  H__NOTE(_REST),
-  Q__NOTE(_REST),
-  Q__NOTE(_A4),
-
-  W__NOTE(_E4)
 );
 
 // Each layer gets a name for readability, which is then used in the keymap matrix below.

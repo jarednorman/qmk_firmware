@@ -1,4 +1,4 @@
-#include "ergodox.h"
+#include QMK_KEYBOARD_H
 #include "debug.h"
 #include "action_layer.h"
 #include "version.h"
@@ -31,7 +31,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
         KC_HOME, KC_END,
         KC_PGUP,
-        KC_PGDN, MO(FUNCTION), KC_BSPC
+        KC_PGDN, KC_TRNS, KC_BSPC
+// FIXME I've got no arrows now!!!
     ),
     [NORMAN] = KEYMAP(
        // Left hand:
@@ -113,32 +114,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 // Runs constantly in the background, in a loop.
 void matrix_scan_user(void) {
 
-    uint8_t layer = biton32(layer_state);
+    /* uint8_t layer = biton32(layer_state); */
 
-    ergodox_board_led_off();
-    ergodox_right_led_1_off();
-    ergodox_right_led_2_off();
-    ergodox_right_led_3_off();
+    /* ergodox_board_led_off(); */
+    /* ergodox_right_led_1_off(); */
+    /* ergodox_right_led_2_off(); */
+    /* ergodox_right_led_3_off(); */
 
-    switch (layer) {
-      // TODO: Make this relevant to the ErgoDox EZ.
-        case BASE:
-            ergodox_right_led_1_on();
-            ergodox_right_led_2_on();
-            ergodox_right_led_3_on();
-        case FUNCTION:
-            ergodox_right_led_1_on();
-            break;
-        case EXTRAS:
-            ergodox_right_led_2_on();
-            break;
-        case NORMAN:
-            ergodox_right_led_3_on();
-            break;
-        default:
-            // none
-            break;
-    }
+    /* switch (layer) { */
+    /* } */
 };
 
 /* Blank Layer

@@ -103,9 +103,45 @@ void matrix_init_user(void) {
 
 };
 
+#define randadd 53
+#define randmul 181
+#define randmod 167
+static uint16_t random_value = 157;
+static uint16_t last_rando = 0;
+
+uint16_t get_random_value(void) {
+  random_value = ((random_value + randadd) * randmul) % randmod;
+  return random_value % 8;
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  uint16_t rando = 0;
+
+  do {
+    rando = get_random_value();
+  } while (last_rando == rando || rando == 0);
+  last_rando = rando;
+
+  bool one_on   = (rando & 4) == 4;
+  bool two_on   = (rando & 2) == 2;
+  bool three_on = (rando & 1) == 1;
+
   if (record->event.pressed) {
-    ergodox_right_led_1_on();
+    if (one_on) {
+      ergodox_right_led_1_on();
+    } else {
+      ergodox_right_led_1_off();
+    }
+    if (two_on) {
+      ergodox_right_led_2_on();
+    } else {
+      ergodox_right_led_2_off();
+    }
+    if (three_on) {
+      ergodox_right_led_3_on();
+    } else {
+      ergodox_right_led_3_off();
+    }
   }
 
   return true;

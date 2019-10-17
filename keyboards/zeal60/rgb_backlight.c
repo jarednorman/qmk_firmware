@@ -47,7 +47,7 @@ backlight_config g_config = {
 	.disable_after_timeout = RGB_BACKLIGHT_DISABLE_AFTER_TIMEOUT,
 	.brightness = 255,
 	.effect = RGB_BACKLIGHT_EFFECT,
-	.effect_speed = 0,
+	.effect_speed = 1,
 	.color_1 = { .h = 0, .s = 255, .v = 255 },
 	.color_2 = { .h = 127, .s = 255, .v = 255 },
 	.caps_lock_indicator = { .color = { .h = 0, .s = 0, .v = 255 }, .index = 255 },
